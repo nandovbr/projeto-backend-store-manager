@@ -4,7 +4,7 @@ const productServices = require('../services/productServices');
 
 const getAllProducts = rescue(async (_req, res) => {
     const result = await productServices.getAllProducts();
-    // console.log(result);
+
     if (result.error) {
       return res.status(404).json({ message: result.error.message });
     }
@@ -15,10 +15,11 @@ const getAllProducts = rescue(async (_req, res) => {
 const getProductsId = rescue(async (req, res) => {
   const { id } = req.params;
   const result = await productServices.getProductsId(id);
+  
   if (result.error) {
     return res.status(404).json({ message: result.error.message });
   }
-  
+
   return res.status(200).json(result);
 });
 

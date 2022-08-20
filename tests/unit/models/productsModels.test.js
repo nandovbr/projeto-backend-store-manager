@@ -31,5 +31,19 @@ describe("Teste Model products", () => {
       const productsId = await productModel.getProductsId(1);
       expect(productsId).to.be.an('object');
     });
+
+    it('Deve retornar falso com erro na listagem de produtos', async () => {
+      sinon.stub(connection, 'execute').resolves([ false ]);
+
+      const products = await productModel.getAllProducts();
+      expect(products).to.be.an('boolean');
+    });
+
+    it('Deve retornar falso com erro na listagem de produtos pelo id', async () => {
+      sinon.stub(connection, 'execute').resolves([ false ]);
+
+      const productsId = await productModel.getAllProducts();
+      expect(productsId).to.be.an('boolean');
+    });
   });
 });

@@ -23,7 +23,19 @@ const getProductsId = rescue(async (req, res) => {
   return res.status(200).json(result);
 });
 
+const createProduct = rescue(async (req, res) => {
+  const { name } = req.body;
+  const result = await productServices.createProduct(name);
+
+  // if (result.error) {
+  //   return res.status(404).json({ message: result.error.message });
+  // }
+
+  return res.status(201).json(result);
+});
+
 module.exports = {
   getAllProducts,
   getProductsId,
+  createProduct,
 };

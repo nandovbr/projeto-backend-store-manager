@@ -17,7 +17,16 @@ const getProductsId = async (id) => {
   return response;
 };
 
+const createProduct = async (name) => {
+  const response = await productModel.createProduct(name);
+  // if (!response) {
+  //   return { error: { code: 404, message: 'Product was not created' } };
+  // }
+  return response;
+};
+
 module.exports = {
   getAllProducts,
   getProductsId,
+  createProduct,
 };

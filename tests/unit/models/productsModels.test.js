@@ -45,5 +45,21 @@ describe("Teste Model products", () => {
       const productsId = await productModel.getAllProducts();
       expect(productsId).to.be.an('boolean');
     });
+
+    const newProduct = [ { id: 4, name: 'ProdutoX' } ];
+
+    it('Deve criar/inserir um produto no banco com sucesso', async () => {
+      sinon.stub(connection, 'execute').resolves([ newProduct ]);
+
+      const newProd = await productModel.createProduct();
+      expect(newProd).to.be.an('object');
+    });
+
+    it('Deve retornar falso com erro na criação do produto', async () => {
+      sinon.stub(connection, 'execute').resolves([ false ]);
+
+      const newProd = await productModel.createProduct();
+      expect(newProd).to.be.an('boolean');
+    });
   });
 });

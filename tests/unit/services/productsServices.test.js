@@ -31,5 +31,12 @@ describe("Teste services products", () => {
       const productsId = await productServices.getProductsId(1);
       expect(productsId).to.be.an('object');
     });
+
+    it('Deve criar um produto com sucesso', async () => {
+      sinon.stub(connection, 'execute').resolves([ [ { id: 4, name: 'ProdutoX' } ] ]);
+
+      const newProd = await productServices.createProduct();
+      expect(newProd).to.be.an('object');
+    });
   });
 });

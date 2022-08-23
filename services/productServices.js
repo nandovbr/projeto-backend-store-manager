@@ -19,9 +19,9 @@ const getProductsId = async (id) => {
 
 const createProduct = async (name) => {
   const response = await productModel.createProduct(name);
-  if (!response) {
-    return { error: { code: 404, message: 'Product was not created' } };
-  }
+  // if (!response) {
+  //   return { error: { code: 404, message: 'Product was not created' } };
+  // }
   return response;
 };
 

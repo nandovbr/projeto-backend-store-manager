@@ -28,7 +28,7 @@ const createProduct = rescue(async (req, res) => {
   const result = await productServices.createProduct(name);
 
   if (result.error) {
-    return res.status(404).json({ message: result.error.message });
+    return { error: { code: 404, message: 'Product was not created' } };
   }
 
   return res.status(201).json(result);

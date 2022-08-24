@@ -1,9 +1,9 @@
 const validName = (req, res, next) => {
 const { name } = req.body;
-console.log('topo: ', name);
+// console.log('topo: ', name);
 
   if (!name || name === undefined) {
-    console.log('primeiro if: ', name);
+    // console.log('primeiro if: ', name);
 
     return res.status(400).json({
       code: 'invalid_data',
@@ -13,7 +13,7 @@ console.log('topo: ', name);
     // return { error: { code: 400, message: 'name is required' } };
 
   if (name.length < 5) {
-    console.log('segundo if: ', name);
+    // console.log('segundo if: ', name);
 
     return res.status(422).json({
       code: 'invalid_data',

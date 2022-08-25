@@ -61,5 +61,30 @@ describe("Teste Model products", () => {
       const newProd = await productModel.createProduct();
       expect(newProd).to.be.an('boolean');
     });
+
+    const updateProduct = [ { id: 8, name: 'Martelo do Hulk' } ];
+    
+    it('Deve retornar o produto atualizado', async () => {
+      sinon.stub(connection, 'execute').resolves(updateProduct);
+
+      const updateProd = await productModel.updateProduct();
+      expect(updateProd).to.be.an('object');
+    });
+
+    const product = '';
+    
+    it('Deve retornar false com query inexistente', async () => {
+      sinon.stub(connection, 'execute').resolves(product);
+
+      const noProduct = await productModel.createProduct();
+      expect(noProduct).to.be.false;
+    });
+
+    it('Deve retornar false com query inexistente', async () => {
+      sinon.stub(connection, 'execute').resolves(product);
+
+      const noProduct = await productModel.getProductsId();
+      expect(noProduct).to.be.false;
+    });
   });
 });

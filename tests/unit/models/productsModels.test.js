@@ -72,7 +72,7 @@ describe("Teste Model products", () => {
     });
 
     const product = '';
-    
+
     it('Deve retornar false com query inexistente', async () => {
       sinon.stub(connection, 'execute').resolves(product);
 
@@ -85,6 +85,14 @@ describe("Teste Model products", () => {
 
       const noProduct = await productModel.getProductsId();
       expect(noProduct).to.be.false;
+    });
+
+    const productDeleted = [ { id: 1, name: 'Martelo de Thor' } ];
+    it('Deve retornar o produto deletado do banco de dados', async () => {
+      sinon.stub(connection, 'execute').resolves(productDeleted);
+
+      const deleteProd = await productModel.deleteProduct();
+      expect(deleteProd).to.be.an('undefined');
     });
   });
 });

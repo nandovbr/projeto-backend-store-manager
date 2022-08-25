@@ -38,5 +38,26 @@ describe("Teste services products", () => {
       const newProd = await productServices.createProduct();
       expect(newProd).to.be.an('object');
     });
+
+    it('Deve retornar erro sem o id do produto', async () => {
+      sinon.stub(connection, 'execute').resolves([{ error: { code: 404, message: 'Product not found' } }]);
+
+      const newProd = await productServices.getAllProducts();
+      expect(newProd).to.be.an('object');
+    });
+
+    it('Deve retornar erro sem o id do produto', async () => {
+      sinon.stub(connection, 'execute').resolves([{ error: { code: 404, message: 'Product not found' } }]);
+
+      const newProd = await productServices.deleteProduct();
+      expect(newProd).to.be.an('object');
+    });
+
+    it('Deve retornar erro 404 com produto inexistente', async () => {
+      sinon.stub(connection, 'execute').resolves([{ error: { code: 404, message: 'Product not found' } }]);
+
+      const newProd = await productServices.deleteProduct();
+      expect(newProd).to.have.status(404);
+    });
   });
 });

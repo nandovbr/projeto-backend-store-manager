@@ -1,6 +1,6 @@
 # 👨🏾‍💻 CRUD de Produtos Fictícios e Arquitetura MSC 👨🏾‍💻
 
-Os arquivos que deseeenvolvi nesse projeto são os conteúdos das pastas:
+Os arquivos que desenvolvi nesse projeto são os conteúdos das pastas:
 
 - models;
 - services;

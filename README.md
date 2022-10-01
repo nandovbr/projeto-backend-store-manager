@@ -1,4 +1,4 @@
-# 👨🏾‍💻 CRUD de Produtos Fictícios e Arquitetura MSC 👨🏾‍💻
+# 👨🏾‍💻 CRUD de Produtos Fictícios, Arquitetura MSC e Testes 👨🏾‍💻
 
 Os arquivos que desenvolvi nesse projeto são os conteúdos das pastas:
 
